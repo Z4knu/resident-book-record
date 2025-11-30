@@ -1,0 +1,24 @@
+[
+    {
+        "username": "clemente",
+        "password": "$2y$10$uZrpJTOSC8wj84DaSn5Hw.YDxbU0Sn4YoDd3.iW2bNU\/Yu8GoPGMO",
+        "firstName": "Matsukaze",
+        "lastName": "tenma",
+        "email": "matsukazetenma@gmail.com",
+        "birthday": "2006-01-20",
+        "age": "18",
+        "address": "japan",
+        "phone": "09891624323"
+    },
+    {
+        "username": "angelo",
+        "password": "$2y$10$MadNHS.nbjyNOzpg5m8DduH1Nkhp5JK4eALE0kDBdVgSIqOO6aJm2",
+        "firstName": "angelo",
+        "lastName": "fernandez",
+        "email": "angelo@gmail.com",
+        "birthday": "2006-02-20",
+        "age": "18",
+        "address": "umingan",
+        "phone": "09913214378"
+    }
+]
