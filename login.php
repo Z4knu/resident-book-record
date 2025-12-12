@@ -3,7 +3,6 @@ session_start();
 require "user.php";
 $user = new User();
 
-// Handle submission before any output
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $username = $_POST["username"] ?? '';
     $password = $_POST["password"] ?? '';
@@ -46,6 +45,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         <button type="submit">Login</button>
 
     </form>
+    
     <p class="signup-link">Don't have an account? <a href="register.php">Sign up</a></p>
 </div>
 

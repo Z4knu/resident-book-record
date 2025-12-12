@@ -12,13 +12,13 @@ if($_SERVER["REQUEST_METHOD"]== "POST"){
     $age=$_POST["age"] ?? '';
     $address=$_POST["address"] ?? '';
     $phone=$_POST["phone"] ?? '';
+    $gender=$_POST["gender"] ?? '';
 
-    // Simple server-side validation
-    if (empty($username) || empty($password) || empty($firstName) || empty($lastName) || empty($email) || empty($birthday) || empty($age) || empty($address) || empty($phone)) {
+    if (empty($username) || empty($password) || empty($firstName) || empty($lastName) || empty($email) || empty($birthday) || empty($age) || empty($address) || empty($phone) || empty($gender)) {
         $message = 'Please fill in all required fields.';
         $message_type = 'error';
     } else {
-        $message = $user->register($username,$password,$firstName,$lastName,$email,$birthday,$age,$address,$phone);
+        $message = $user->register($username,$password,$firstName,$lastName,$email,$birthday,$age,$address,$phone,$gender);
         $message_type = ($message === 'Registration Successful') ? 'success' : 'error';
     }
 }
@@ -68,6 +68,9 @@ if($_SERVER["REQUEST_METHOD"]== "POST"){
             <label>Phone Number:</label>
             <input type="text" placeholder="Phone Number (e.g. 09123456789)" name="phone" 
             pattern="^09\d{9}$" maxlength="11" required>
+
+            <label>Gender</label>
+            <input type="text" placeholder="Gender" name="gender" required>
 
             
 

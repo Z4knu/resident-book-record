@@ -3,7 +3,6 @@ body {
     margin: 0;
 }
 
-/* Login/Register Pages */
 body.auth {
     background: #f2f2f2;
     display: flex;
@@ -15,7 +14,6 @@ body.auth {
 
 form {
     background: white;
-    padding: 25px 30px;
     border-radius: 12px;
     box-shadow: 0 0 15px rgba(0,0,0,0.1);
     width: 330px;
@@ -71,35 +69,48 @@ button:hover {
 }
 
 .message {
-    display: block;
-    max-width: 90%;
-    margin: 0 auto 15px;
-    padding: 8px 12px;
-    border-radius: 6px;
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 350px;
+    padding: 3px 15px;
+    border-radius: 450px;
     text-align: center;
+    font-size: 14px;
+    font-weight: 600;
+    animation: slideDown 0.2s ease-out;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    z-index: 9999;
 }
+
 
 .message.error {
-    color: #b02a37;
-    background: #fdecea;
-    border: 1px solid #f5c2c7;
+    color: #842029;
+    background: #f8d7da;
+    border: 1px solid #f1aeb5;
 }
+
 
 .message.success {
-    color: #155724;
-    background: #d4edda;
-    border: 1px solid #c3e6cb;
+    color: #0f5132;
+    background: #d1e7dd;
+    border: 1px solid #a3d5b1;
 }
 
-/* Signup Link */
+@keyframes slideDown {
+    from { opacity: 0; transform: translate(-50%, -10px); }
+    to { opacity: 1; transform: translate(-50%, 0); }
+}
+
+
 .signup-link {
     text-align: center;
     margin-top: 15px;
     font-size: 14px;
     color: #666;
 }
-
-
 
 .signup-link a {
     color: #28a745;
@@ -111,13 +122,12 @@ button:hover {
     text-decoration: underline;
 }
 
-/* Dashboard Page */
+
 body.dashboard-page {
     background: #f5f7fa;
     color: #1a1a1a;
 }
 
-/* Top Navigation */
 .top-nav {
     background: #28a745;
     color: #fff;
@@ -142,10 +152,10 @@ body.dashboard-page {
 }
 
 .logout-btn:hover {
-    background: #c82333;
+    background: #16c470;
 }
 
-/* Page Header */
+
 .page-header {
     padding: 30px;
 }
@@ -162,7 +172,6 @@ body.dashboard-page {
     font-weight: bold;
 }
 
-/* Buttons Section */
 .actions {
     display: flex;
     gap: 10px;
@@ -190,22 +199,12 @@ body.dashboard-page {
 }
 
 .btn.edit {
-    background-color: #f1c40f;
-    color: white;
+    background-color: #007bff;
+    color: #fff;
 }
 
-.btn.filter {
-    background: #e0e6ed;
-}
-
-.btn.assign, .btn.upload, .btn.export {
-    background: #fff;
-    border: 1px solid #ccc;
-}
-
-/* Table */
 table {
-    width: 100%;
+    width: 462%;
     border-collapse: collapse;
     background: #fff;
 }
@@ -227,7 +226,6 @@ tr:hover {
     background: #f9fbff;
 }
 
-/* Toggle Switch */
 .toggle {
     position: relative;
     width: 45px;
@@ -255,3 +253,39 @@ tr:hover {
 .toggle.on .circle {
     transform: translateX(23px);
 }
+
+.modal {
+    position: fixed;
+    inset: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 350px;
+    background: rgba(0,0,0,0.45);
+    z-index: 1000;
+}
+.modal.show {
+    display: flex;
+}
+.modal-content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    width: 480px;
+    max-width: 95%;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+.modal-content h3 {
+    margin-top: 0;
+}
+.modal-row {
+    display: flex;
+    gap: 10px;
+}
+.modal-row .col {
+    flex: 1;
+}
+.btn.cancel {
+    background: #6c757d;
+}
+

@@ -3,7 +3,6 @@ class User{
     private $file="users.json";
     private $users=[];
 
-
 public function __construct(){
     if(file_exists($this->file)){
         $data=json_decode(file_get_contents($this->file),true);
@@ -14,7 +13,7 @@ public function __construct(){
     }
 }
 
-public function register($username,$password,$firstName="",$lastName="",$email="",$birthday="",$age="",$address="",$phone=""){
+public function register($username,$password,$firstName="",$lastName="",$email="",$birthday="",$age="",$address="",$phone="",$gender=""){
      foreach($this->users as $user){
         if($user["username"]==$username){
             return "Username is already used";
@@ -31,7 +30,8 @@ public function register($username,$password,$firstName="",$lastName="",$email="
         "birthday"=>$birthday,
         "age"=>$age,
         "address"=>$address,
-        "phone"=>$phone
+        "phone"=>$phone,
+        "gender"=>$gender
      ];
      file_put_contents($this->file,json_encode($this->users,JSON_PRETTY_PRINT));
      return "Registration Successful";
@@ -54,5 +54,23 @@ public function login($username,$password){
 public function getAllUsers(){
     return $this->users;
 }
+
+
+public function deleteUsers($usernames){
+    if(!is_array($usernames)){
+        $usernames = [$usernames];
+    }
+
+    $filtered = [];
+    foreach($this->users as $user){
+        if(!in_array($user['username'],$usernames)){
+            $filtered[] = $user;
+        }
+    }
+
+    $this->users = $filtered;
+    file_put_contents($this->file,json_encode($this->users,JSON_PRETTY_PRINT));
+    return true;
 }
-?>
+}
+?>      
